@@ -1,42 +1,24 @@
 package de.uhd.ifi.raidhelper.playerdirect;
 
 abstract public class Playermodel {
+    String klasse;
     String name;
     String champion_lvl;
-    String klasse; //Key for Fabric method
     String dmg;
-    public String getDmg() {
-        return dmg;
-    }
+    abstract public String getKlasse();
 
-    public void setDmg(String dmg) {
-        this.dmg = dmg;
-    }
+    abstract public void setKlasse(String klasse);
 
+    abstract public String getName();
 
-    public String getName() {
-        return name;
-    }
+    abstract public void setName(String name);
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    abstract public String getChampion_lvl();
 
-    public String getChampion_lvl() {
-        return champion_lvl;
-    }
+    abstract public void setChampion_lvl(String champion_lvl);
+    abstract public void setDmg(String dmg) ;
+   abstract public String getDmg();
 
-    public void setChampion_lvl(String champion_lvl) {
-        this.champion_lvl = champion_lvl;
-    }
-
-    public String getKlasse() {
-        return klasse;
-    }
-
-    public void setKlasse(String klasse) {
-        this.klasse = klasse;
-    }
 
 
     String show(){

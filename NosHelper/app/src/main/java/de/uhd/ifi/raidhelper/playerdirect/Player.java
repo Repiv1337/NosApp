@@ -1,49 +1,57 @@
 package de.uhd.ifi.raidhelper.playerdirect;
 
-public class Player {
-    String klasse;
-    String name;
-    String level;
-    String dmg;
+public class Player extends Playermodel{
+    public Player(String klasse, String name, String lvl, String dmg) {
+        this.klasse = klasse;
+        this.name=name;
+        this.champion_lvl=lvl;
+        this.dmg=dmg;
+    }
+
 
     public String getKlasse() {
-        return klasse;
+        return this.klasse;
     }
+
 
     public void setKlasse(String klasse) {
-        this.klasse = klasse;
+
     }
+
 
     public String getName() {
-        return name;
+        return this.name;
     }
+
 
     public void setName(String name) {
-        this.name = name;
+
     }
 
-    public String getLevel() {
-        return level;
+
+    public String getChampion_lvl() {
+        return this.champion_lvl;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+
+    public void setChampion_lvl(String champion_lvl) {
+
     }
 
-    public String getDmg() {
-        return dmg;
-    }
 
     public void setDmg(String dmg) {
-        this.dmg = dmg;
+
     }
 
-    public Player(String klasse, String name, String level, String dmg){
-        this.klasse = klasse;
-        this.name = name;
-        this.level = level;
-        this.dmg = dmg;
+
+    public String getDmg() {
+        return this.dmg+100;
     }
+
+    public String getLvl(){
+        return this.champion_lvl;
+    }
+
 
 
 }
