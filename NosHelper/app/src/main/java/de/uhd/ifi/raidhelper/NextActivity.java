@@ -2,9 +2,7 @@ package de.uhd.ifi.raidhelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +16,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import de.uhd.ifi.raidhelper.playerdirect.Player;
+
 public class NextActivity extends AppCompatActivity {
 
     ImageView a8;
@@ -29,6 +29,7 @@ public class NextActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
+
         a8 = (ImageView) findViewById(R.id.a8);
         text = (EditText) findViewById(R.id.edittest);
         loadData();
@@ -37,7 +38,8 @@ public class NextActivity extends AppCompatActivity {
         buttonsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Player p1 = new Player(text.getText().toString());
+                //Playermodel p1 = playerfactory.getPlayer(text.getText().toString(),"90","Mage","130");
+                Player p1 = new Player("Mage",text.getText().toString(),"90","100");
                 load.add(p1);
                 saveData();
             }
@@ -46,7 +48,7 @@ public class NextActivity extends AppCompatActivity {
         a8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                   show();
+                show();
             }
         });
     }
@@ -71,7 +73,7 @@ public class NextActivity extends AppCompatActivity {
     }
     private void show(){
         if(!load.isEmpty()){
-            Toast.makeText(NextActivity.this,load.get(0).name,Toast.LENGTH_SHORT).show();
+            Toast.makeText(NextActivity.this,load.get(0).getName(),Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(NextActivity.this,"fail",Toast.LENGTH_SHORT).show();
