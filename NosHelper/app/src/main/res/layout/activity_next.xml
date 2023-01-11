@@ -30,8 +30,8 @@
         android:id="@+id/a8"
         android:layout_width="186dp"
         android:layout_height="149dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/a8" />
@@ -40,21 +40,83 @@
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginBottom="283dp"
-        android:text="save"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+        android:text="Erstelle Raid"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a8" />
 
     <EditText
         android:id="@+id/edittest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="197dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="384dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/a8"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/textchampionlvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Level"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittest" />
+
+    <ImageView
+        android:id="@+id/bogi"
+        android:layout_width="109dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mage"
+        app:layout_constraintStart_toEndOf="@+id/swordi"
+        app:srcCompat="@drawable/bogi" />
+
+    <ImageView
+        android:id="@+id/swordi"
+        android:layout_width="109dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bogi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/swordi" />
+
+    <ImageView
+        android:id="@+id/mage"
+        android:layout_width="109dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="316dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bogi"
+        app:srcCompat="@drawable/mage" />
+
+    <ImageView
+        android:id="@+id/classholder"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toEndOf="@+id/edittest"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

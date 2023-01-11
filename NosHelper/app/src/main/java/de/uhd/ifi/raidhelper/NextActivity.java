@@ -2,7 +2,10 @@ package de.uhd.ifi.raidhelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,35 +18,67 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Stack;
 
 import de.uhd.ifi.raidhelper.playerdirect.Playermodel;
 
-public class NextActivity extends AppCompatActivity {
+public class NextActivity extends AppCompatActivity  {
 
     ImageView a8;
     EditText text;
-    ArrayList<Player> load;
-
-
+    EditText leveltext;
+    Stack<Player> load;
+    ImageView swordi;
+    ImageView mage;
+    ImageView bogi;
+    ImageView classholder = null;
+    String classchoice = "You must chooste a class";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
-
+        classholder = (ImageView) findViewById(R.id.classholder);
         a8 = (ImageView) findViewById(R.id.a8);
         text = (EditText) findViewById(R.id.edittest);
+        leveltext = (EditText) findViewById(R.id.textchampionlvl);
+        swordi = (ImageView) findViewById(R.id.swordi);
+        bogi = (ImageView) findViewById(R.id.bogi);
+        mage = (ImageView) findViewById(R.id.mage);
         loadData();
 
+        bogi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                classholder.setImageResource(R.drawable.bogi_icon);
+                classchoice = "Bogi";
+            }
+        });
+
+        swordi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                classholder.setImageResource(R.drawable.sword_icon);
+                classchoice = "Swordi";
+            }
+        });
+        mage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                classholder.setImageResource(R.drawable.mage_icon);
+                classchoice ="Mage";
+            }
+        });
         Button buttonsave = findViewById(R.id.save);
         buttonsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-                Player p1 = new Player("Mage",text.getText().toString(),"90","100");
-                load.add(p1);
+                Player p1 = new Player(classchoice,text.getText().toString(),leveltext.getText().toString(),"100");
+                load.push(p1);
                 saveData();
+                Intent intent = new Intent(NextActivity.this,ActivityA8.class);
+                startActivity(intent);
             }
         });
 
@@ -51,6 +86,7 @@ public class NextActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 show();
+
             }
         });
     }
@@ -66,23 +102,22 @@ public class NextActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("task list", null);
-        Type type = new TypeToken<ArrayList<Player>>() {}.getType(); //Darf keine Abstrakte klasse sein -> Abstrakte Klasse lässt sich da nicht speicher
-                                                                    // Müssen alle Nostale Klassen in eine packen
+        Type type = new TypeToken<Stack<Player>>() {}.getType();
         load= gson.fromJson(json, type);
-
         if (load == null) {
-            load = new ArrayList<>();
+            load = new Stack<>();
+            return;
         }
-    }
-    private void show(){
-        if(!load.isEmpty()){
-            Toast.makeText(NextActivity.this,load.get(load.size()-1).getName(),Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(NextActivity.this,"fail",Toast.LENGTH_SHORT).show();
 
-        }
+        text.setText(load.peek().getName());
+        leveltext.setText(load.pop().getChampion_lvl());
+
+
     }
+    public void show(){
+        Toast.makeText((Context) this, (CharSequence) load.get(load.size()-1).getChampion_lvl(),Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }

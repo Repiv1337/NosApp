@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityA8">
+
+    <TextView
+        android:layout_width="126dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="640dp"
+        android:fontFamily="casual"
+        android:text="Manage A8 Raids"
+        android:textColor="#231F1F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
+
+    <ImageView
+        android:id="@+id/raidbar"
+        android:layout_width="574dp"
+        android:layout_height="232dp"
+        android:layout_marginBottom="416dp"
+        android:src="@drawable/listbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/alzaseal"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="87dp"
+        android:src="@drawable/alza"
+        app:layout_constraintStart_toStartOf="@+id/raidbar"
+        app:layout_constraintTop_toTopOf="@+id/raidbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>
