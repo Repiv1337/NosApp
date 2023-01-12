@@ -1,6 +1,8 @@
 package de.uhd.ifi.raidhelper.playerdirect;
 
-public class Player extends Playermodel{
+import java.io.Serializable;
+
+public class Player extends Playermodel implements Serializable {
     public Player(String klasse, String name, String lvl, String dmg) {
         this.klasse = klasse;
         this.name=name;

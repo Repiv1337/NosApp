@@ -1,6 +1,8 @@
 package de.uhd.ifi.raidhelper.playerdirect;
 
-abstract public class Playermodel {
+import java.io.Serializable;
+
+abstract public class Playermodel implements Serializable {
     String klasse;
     String name;
     String champion_lvl;

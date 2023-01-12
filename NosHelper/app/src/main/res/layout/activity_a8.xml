@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ActivityA8">
 
+    <ImageView
+        android:id="@+id/raidbar3"
+        android:layout_width="574dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="352dp"
+        android:src="@drawable/listbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/raidbar2"
+        android:layout_width="574dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="212dp"
+        android:src="@drawable/listbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:layout_width="126dp"
         android:layout_height="63dp"
@@ -27,19 +46,21 @@
     <ImageView
         android:id="@+id/raidbar"
         android:layout_width="574dp"
-        android:layout_height="232dp"
-        android:layout_marginBottom="416dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="484dp"
         android:src="@drawable/listbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/alzaseal"
+        android:id="@+id/a8"
         android:layout_width="50dp"
         android:layout_height="55dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="132dp"
         android:src="@drawable/alza"
-        app:layout_constraintStart_toStartOf="@+id/raidbar"
-        app:layout_constraintTop_toTopOf="@+id/raidbar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
