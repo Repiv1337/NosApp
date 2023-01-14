@@ -8,6 +8,7 @@ public class Player extends Playermodel implements Serializable {
         this.name=name;
         this.champion_lvl=lvl;
         this.dmg=dmg;
+
     }
 
 

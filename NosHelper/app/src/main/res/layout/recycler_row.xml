@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="407dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        app:cardElevation="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="245dp"
+            android:background="@drawable/pixelborder">
+
+
+            <ImageView
+                android:id="@+id/classimage"
+                android:layout_width="40dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="67dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toEndOf="@+id/memberlvl"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+
+                android:id="@+id/membername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="28dp"
+                android:text="TextView"
+                android:textColor="#070707"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/memberlvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="28dp"
+                android:text="TextView"
+                android:textColor="#070707"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                app:layout_constraintStart_toEndOf="@+id/membername"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ abstract public class Playermodel implements Serializable {
     String name;
     String champion_lvl;
     String dmg;
+    String raid;
     abstract public String getKlasse();
 
     abstract public void setKlasse(String klasse);

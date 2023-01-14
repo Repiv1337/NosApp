@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ActivityRaidMap">
 
-    <TextView
-        android:id="@+id/textraid"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="727dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagedelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="43dp" />
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_delete" />/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

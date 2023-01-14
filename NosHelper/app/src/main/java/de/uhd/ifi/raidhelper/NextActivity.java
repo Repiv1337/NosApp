@@ -24,21 +24,25 @@ import de.uhd.ifi.raidhelper.playerdirect.Playermodel;
 
 public class NextActivity extends AppCompatActivity implements Serializable{
 
-
+    public static int changecounter = 0;
     EditText text;
     EditText leveltext;
-    ArrayList<Player> load;
+    public static ArrayList<Player> load;
     ImageView a8;
     ImageView swordi;
     ImageView mage;
     ImageView bogi;
     ImageView classholder = null;
     String classchoice = "You must chooste a class";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
+        if(changecounter!=0){
+            load.remove(1);
+            saveData();
+        }
         classholder = (ImageView) findViewById(R.id.classholder);
         text = (EditText) findViewById(R.id.edittest);
         leveltext = (EditText) findViewById(R.id.textchampionlvl);
@@ -46,7 +50,6 @@ public class NextActivity extends AppCompatActivity implements Serializable{
         bogi = (ImageView) findViewById(R.id.bogi);
         mage = (ImageView) findViewById(R.id.mage);
         loadData();
-
         bogi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +57,6 @@ public class NextActivity extends AppCompatActivity implements Serializable{
                 classchoice = "Bogi";
             }
         });
-
         swordi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,30 +75,36 @@ public class NextActivity extends AppCompatActivity implements Serializable{
         buttonsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                pustoList();
-                saveData();
-                Intent intent2 = new Intent(NextActivity.this,ActivityA8.class);
-                intent2.putExtra("toa8",load);
-                startActivity(intent2);
+                if(!check()) {
+                    pustoList();
+                    saveData();
+                    Intent intent2 = new Intent(NextActivity.this, ActivityA8.class);
+                    startActivity(intent2);
+                }
+                else{
+                    show();
+                }
             }
         });
-        
         Button buttonjoin = findViewById(R.id.Join);
         buttonjoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pustoList();
-                saveData();
-                Intent intent = new Intent(NextActivity.this,JoinActivity.class);
-                intent.putExtra("test",load);
-                startActivity(intent);
+                if(!check()) {
+                    pustoList();
+                    saveData();
+                    Intent intent = new Intent(NextActivity.this, JoinActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    show();
+                }
             }
         });
 
 
     }
-    private void saveData() {
+    public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
@@ -128,7 +136,14 @@ public class NextActivity extends AppCompatActivity implements Serializable{
         }
     }
     public void show(){
-        Toast.makeText((Context) this, (CharSequence) load.get(load.size()-1).getChampion_lvl(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Bitte wähle Name und Level",Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean check(){
+        if(this.text.getText().toString().equals("") || this.leveltext.getText().toString().equals("")){
+            return true;
+        }
+        return false;
     }
 
 

@@ -21,22 +21,10 @@ public class JoinActivity extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
-        Intent intent = getIntent();
-        ArrayList<Player> load;
-        load = (ArrayList<Player>) intent.getSerializableExtra("test");
-        String text = load.get(load.size()-1).getName();
-        Button button = (Button) findViewById(R.id.showbutt);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                show(load.get(load.size()-1));
-            }
-        });
 
-        TextView textView = (TextView) findViewById(R.id.texttest);
-        TextView textView1 = (TextView) findViewById(R.id.texttest2);
-        textView.setText(text);
-        textView1.setText(load.get(load.size()-1).getChampion_lvl());
+
+
+
     }
 
     private void show(Player p1){

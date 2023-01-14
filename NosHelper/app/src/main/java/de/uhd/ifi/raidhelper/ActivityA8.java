@@ -20,15 +20,15 @@ public class ActivityA8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a8);
-        Intent intent = getIntent();
-        ArrayList<Player> load;
-        load = (ArrayList<Player>) intent.getSerializableExtra("toa8");
+
+
+
         alza = (ImageView) findViewById(R.id.a8);
         alza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityA8.this,ActivityRaidMap.class);
-                intent.putExtra("toraid",load);
+
                 startActivity(intent);
             }
         });
