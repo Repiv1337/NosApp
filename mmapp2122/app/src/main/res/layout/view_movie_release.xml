@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="58dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/releases_header"
+            style="@style/DetailAttributeHeader"
+            android:layout_width="363dp"
+            android:layout_height="49dp"
+
+            android:text="@string/movie_releases"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/release_vertical_guideline_end"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/release_vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="363dp" />
+
+        <ImageButton
+            android:id="@+id/add_release_button"
+            style="@style/FlatButton"
+            android:layout_width="@dimen/base_square"
+            android:layout_height="@dimen/base_square"
+            android:layout_margin="0dp"
+            android:background="@color/colorAccent"
+            android:contentDescription="@string/movie_add_release_description"
+            android:src="@drawable/ic_add_button"
+
+            app:layout_constraintBottom_toBottomOf="@id/releases_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/release_vertical_guideline_end"
+            app:layout_constraintTop_toTopOf="@id/releases_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/view4"
+        style="@style/HeaderDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/releases"
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <View
+
+        style="@style/AttributeEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/releases" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

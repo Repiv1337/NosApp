@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_border_view"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:padding="@dimen/half_padding">
+
+        <ImageView
+            style="@style/PortrayableImageMedium"
+            android:id="@+id/content_image"
+            android:contentDescription="@string/list_item_portrayable_image"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/content_title"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            android:text="@string/bottom_navigation_menu_movies"
+            android:textColor="#AAAAAA"
+
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/content_subtitle"
+            app:layout_constraintEnd_toStartOf="@id/content_label"
+            app:layout_constraintStart_toEndOf="@id/content_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/content_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top|end"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:padding="@dimen/half_padding"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+
+            app:textAllCaps="true"
+            app:layout_constraintTop_toTopOf="@id/content_title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            style="@style/AttributeEnd"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+
+            app:layout_constraintStart_toStartOf="@id/content_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/content_title" />
+
+
+        <TextView
+            android:id="@+id/content_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/half_star_family"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingEnd="@dimen/default_padding"
+            android:text="@string/movie_rating"
+            android:textSize="18sp"
+
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintBottom_toBottomOf="@id/content_image"
+            app:layout_constraintStart_toEndOf="@id/content_image"
+            app:layout_constraintEnd_toStartOf="@id/content_warning" />
+
+        <TextView
+            android:id="@+id/content_warning"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|end"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:textColor="@color/overdueRed"
+            android:textSize="18sp"
+
+            app:autoSizeTextType="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:textAllCaps="true" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

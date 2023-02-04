@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/near_white"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_movie_title"
+        style="@style/LightEditText"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/default_padding"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/movie_title_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="@string/movie_title"
+            android:inputType="textPersonName"
+            android:text="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        style="@style/AttributeEnd"
+        android:layout_marginBottom="0dp" />
+
+    <ScrollView
+        android:id="@+id/attributes_container_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/near_white"
+        tools:context=".ui.detail.MovieDetailEditActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/default_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/edit_image"
+                    android:layout_width="150dp"
+                    android:layout_height="225dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="@dimen/double_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:contentDescription="@string/list_item_portrayable_image"
+                    android:scaleType="centerCrop"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/default_image_large" />
+
+                <ImageButton
+                    android:id="@+id/reset_image_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_red"
+                    android:contentDescription="@string/remove_image_button"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_image"
+
+                    app:layout_constraintStart_toStartOf="@+id/edit_image"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_image"
+                    app:srcCompat="@drawable/ic_delete_enabled" />
+                <ImageView
+                    android:id="@+id/signtest"
+                    android:layout_width="71dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginBottom="72dp"
+                    app:layout_constraintBottom_toTopOf="@+id/edit_runtime"
+                    app:layout_constraintStart_toEndOf="@+id/edit_image"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <EditText
+                    android:id="@+id/lenddate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Not Lend"
+                    app:layout_constraintBottom_toTopOf="@+id/edit_runtime"
+                    app:layout_constraintStart_toEndOf="@+id/edit_image" />
+                <TextView
+                    android:id="@+id/watch_date_header"
+                    style="@style/DetailAttributeHeader"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="@dimen/double_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:text="@string/movie_watchDate"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/edit_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/watch_date_divider"
+                    style="@style/HeaderDivider"
+                    android:layout_width="0dp"
+
+                    app:layout_constraintEnd_toEndOf="@id/watch_date_header"
+                    app:layout_constraintStart_toStartOf="@id/watch_date_header"
+                    app:layout_constraintTop_toBottomOf="@id/watch_date_header" />
+
+                <de.uhd.ifi.se.moviemanager.ui.view.DateElementView
+                    android:id="@+id/edit_watch_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:errorEnable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/edit_image"
+                    app:layout_constraintTop_toBottomOf="@+id/watch_date_divider"
+                    app:maxDate="today" />
+
+                <TextView
+                    android:id="@+id/runtime_header"
+                    style="@style/HorizontalDetailAttributeHeader"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/movie_runtime"
+                    android:textSize="20sp"
+
+                    app:layout_constraintEnd_toEndOf="@+id/reset_image_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reset_image_button" />
+
+                <View
+                    android:id="@+id/runtime_header_divider"
+                    style="@style/HorizontalHeaderDivider"
+                    android:layout_height="0dp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/runtime_header"
+                    app:layout_constraintStart_toEndOf="@id/runtime_header"
+                    app:layout_constraintTop_toTopOf="@id/runtime_header" />
+
+                <EditText
+                    android:id="@+id/edit_runtime"
+                    style="@style/LightEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:digits="0123456789"
+                    android:hint="@string/sample_runtime"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="@dimen/default_padding"
+
+                    app:layout_constraintBottom_toBottomOf="@id/runtime_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/runtime_header_divider"
+                    app:layout_constraintTop_toTopOf="@id/runtime_header" />
+
+                <View
+                    android:id="@+id/runtime_end"
+                    style="@style/AttributeEnd"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+
+                    app:layout_constraintEnd_toEndOf="@id/edit_runtime"
+                    app:layout_constraintStart_toStartOf="@id/runtime_header"
+                    app:layout_constraintTop_toBottomOf="@id/edit_runtime" />
+
+                <TextView
+                    android:id="@+id/rating_header"
+                    style="@style/HorizontalDetailAttributeHeader"
+                    android:layout_width="0dp"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/movie_rating"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/reset_image_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/runtime_end" />
+
+                <View
+                    android:id="@+id/rating_header_divider"
+                    style="@style/HorizontalHeaderDivider"
+                    android:layout_height="0dp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/rating_header"
+                    app:layout_constraintStart_toEndOf="@id/rating_header"
+                    app:layout_constraintTop_toTopOf="@id/rating_header" />
+
+                <de.uhd.ifi.se.moviemanager.ui.view.RatingElementView
+                    android:id="@+id/edit_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/white"
+
+                    app:layout_constraintBottom_toBottomOf="@id/rating_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintStart_toEndOf="@id/rating_header_divider"
+                    app:layout_constraintTop_toTopOf="@id/rating_header"
+                    app:starSize="38dp"
+                    app:stars="5" />
+
+                <View
+                    style="@style/AttributeEnd"
+                    android:layout_width="0dp"
+
+                    app:layout_constraintEnd_toEndOf="@id/edit_rating"
+                    app:layout_constraintStart_toStartOf="@id/rating_header"
+                    app:layout_constraintTop_toBottomOf="@id/rating_header" />
+
+                <ImageView
+                    android:id="@+id/signedit"
+                    android:layout_width="71dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginBottom="72dp"
+                    app:layout_constraintBottom_toTopOf="@+id/edit_runtime"
+                    app:layout_constraintStart_toEndOf="@+id/edit_image"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/description_header"
+                style="@style/DetailAttributeHeader"
+                android:layout_marginTop="0dp"
+                android:text="@string/movie_description" />
+
+            <View style="@style/HeaderDivider" />
+
+            <EditText
+                android:id="@+id/edit_description"
+                style="@style/LightEditText"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/enter_description"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:maxLines="8"
+                android:minLines="4"
+                android:padding="@dimen/default_padding" />
+
+            <View style="@style/AttributeEnd" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/linked_performers_header"
+                    style="@style/DetailAttributeHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/linked_performers"
+
+                    app:layout_constraintEnd_toStartOf="@id/vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/base_square" />
+
+                <ImageButton
+                    android:id="@+id/link_performer_button"
+                    style="@style/FlatButton"
+                    android:layout_width="@dimen/base_square"
+                    android:layout_height="@dimen/base_square"
+                    android:layout_margin="0dp"
+                    android:background="@color/colorAccent"
+                    android:contentDescription="@string/movie_link_btn_description"
+                    android:src="@drawable/ic_link_button"
+
+                    app:layout_constraintBottom_toBottomOf="@id/linked_performers_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/vertical_guideline_end"
+                    app:layout_constraintTop_toTopOf="@id/linked_performers_header" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/HeaderDivider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/linked_performers"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/linked_portrayables_height"
+                android:background="@color/white"
+                android:orientation="vertical" />
+
+            <View style="@style/AttributeEnd" />
+
+            <TextView
+                style="@style/DetailAttributeHeader"
+                android:text="@string/movie_languages" />
+
+            <View style="@style/HeaderDivider" />
+
+            <EditText
+                android:id="@+id/edit_languages"
+                style="@style/LightEditText"
+                android:background="@color/white"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/movie_enter_languages"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:minLines="3"
+                android:padding="@dimen/default_padding" />
+
+            <View style="@style/AttributeEnd" />
+
+            <de.uhd.ifi.se.moviemanager.ui.view.MovieReleaseView
+                android:id="@+id/edit_movie_releases"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:editEnable="true" />
+
+            <TextView
+                android:id="@+id/production_locations_header"
+                style="@style/DetailAttributeHeader"
+                android:text="@string/movie_productionLocations" />
+
+            <View style="@style/HeaderDivider" />
+
+            <EditText
+                android:id="@+id/edit_production_locations"
+                style="@style/LightEditText"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/movie_enter_production_locations"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:minLines="3"
+                android:padding="@dimen/default_padding" />
+
+            <View style="@style/AttributeEnd" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

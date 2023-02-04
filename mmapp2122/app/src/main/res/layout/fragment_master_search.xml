@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/near_white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+
+        app:defaultQueryHint="@string/search_all_categories_hint"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@android:color/transparent" />
+
+    <View style="@style/HeaderDivider" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            app:layout_constraintGuide_percent="0.20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_80"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            app:layout_constraintGuide_percent="0.80" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            app:layout_constraintGuide_percent="0.10" />
+
+        <de.uhd.ifi.se.moviemanager.ui.search.CompositeScrollView
+            android:id="@+id/search_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbarStyle="outsideInset"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/content_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+        </de.uhd.ifi.se.moviemanager.ui.search.CompositeScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/near_white"
+
+            app:layout_constraintEnd_toEndOf="@+id/vertical_guideline_80"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_20"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_10">
+
+            <ImageView
+                android:id="@+id/search_info_icon"
+                android:layout_width="124dp"
+                android:layout_height="124dp"
+                android:layout_margin="@dimen/default_margin"
+                android:contentDescription="@string/search_icon_description"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search_gray" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_info_icon">
+
+                <TextView
+                    style="@style/GrayInfoText"
+                    android:text="@string/search_info" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/GrayInfoText"
+                        android:text="@string/only_search_info" />
+
+                    <TextView
+                        android:id="@+id/only_search_movies"
+                        style="@style/GrayInfoText"
+                        android:padding="@dimen/half_padding"
+                        android:text="@string/search_in_movies_only"
+                        android:textColor="@color/colorAccentLight"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/only_search_performers"
+                        style="@style/GrayInfoText"
+                        android:padding="@dimen/half_padding"
+                        android:text="@string/search_in_performers_only"
+                        android:textColor="@color/colorAccentLight"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
